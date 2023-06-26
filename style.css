@@ -65,13 +65,3 @@ h1 {
 .click {
   border: 2px solid rgba(47, 117, 187, 0.971);
 }
-
-.decreaseColor {
-  color: red;
-}
-.resetColor {
-  color: black;
-}
-.increaseColor {
-  color: green;
-}

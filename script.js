@@ -6,28 +6,35 @@ const number = document.querySelector('#count');
 
 let numberOnDisplay = 0;
 
+function colorCondition() {
+  if (numberOnDisplay > 0) {
+    number.style.color = 'green';
+  }
+  if (numberOnDisplay < 0) {
+    number.style.color = 'red';
+  }
+  if (numberOnDisplay === 0) {
+    number.style.color = 'black';
+  }
+  number.textContent = numberOnDisplay;
+}
+
 function initDecrease() {
-  number.classList.add('decreaseColor');
-  number.classList.remove('resetColor');
-  number.classList.remove('increaseColor');
+  colorCondition();
   decrease.classList.add('click');
   increase.classList.remove('click');
   reset.classList.remove('click');
 }
 
 function initIncrease() {
-  number.classList.add('increaseColor');
-  number.classList.remove('decreaseColor');
-  number.classList.remove('resetColor');
+  colorCondition();
   increase.classList.add('click');
   decrease.classList.remove('click');
   reset.classList.remove('click');
 }
 
 function initReset() {
-  number.classList.add('resetColor');
-  number.classList.remove('increaseColor');
-  number.classList.remove('decreaseColor');
+  colorCondition();
   reset.classList.add('click');
   decrease.classList.remove('click');
   increase.classList.remove('click');
@@ -35,18 +42,15 @@ function initReset() {
 
 decrease.addEventListener('click', function () {
   numberOnDisplay--;
-  number.textContent = numberOnDisplay;
   initDecrease();
-});
-
-reset.addEventListener('click', function () {
-  numberOnDisplay = 0;
-  number.textContent = numberOnDisplay;
-  initReset();
 });
 
 increase.addEventListener('click', function () {
   numberOnDisplay++;
-  number.textContent = numberOnDisplay;
   initIncrease();
+});
+
+reset.addEventListener('click', function () {
+  numberOnDisplay = 0;
+  initReset();
 });
